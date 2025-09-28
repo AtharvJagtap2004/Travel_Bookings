@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Travel Booking</title>
+    <link rel="stylesheet" href="CSS/form.css" />
+    <script src="PHP/book.js"></script>
+  </head>
+  <body>
+    <section id="booking">
+      <h2 style="text-align: center">Book Your Trip</h2>
+      <form
+        action="php/book.php"
+        method="POST"
+        onsubmit="return validateForm()"
+      >
+        <input type="text" name="name" placeholder="Enter Your Name" required />
+
+        <input
+          type="number"
+          id="mobile"
+          name="mobile"
+          placeholder="Enter Your Mobile Number"
+          required
+        />
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter Your Email"
+          required
+        />
+        <input
+          type="date"
+          id="birth_date"
+          name="birth_date"
+          placeholder="Enter Your Birth date"
+          onchange="calculateAge()"
+          required
+        />
+        <input
+          type="text"
+          id="age"
+          name="age"
+          placeholder="Age"
+          readonly
+          required
+        />
+
+        <select name="gender" required>
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <textarea
+          name="address"
+          placeholder="Enter Your Address"
+          required
+        ></textarea>
+
+        <select name="boarding" required>
+          <option value="">Select Boarding</option>
+          <option value="Deccan">Deccan Office</option>
+          <option value="Wakadewadi">Wakadewadi</option>
+          <option value="Nashik Phata">Nashik Phata</option>
+          <option value="Bhosari">Bhosari</option>
+        </select>
+
+        <!-- Package Dropdown -->
+        <select id="destination" name="destination" required>
+          <option value="">Select Package</option>
+          <option value="Ladakh">🏍️ Adventure of Ladakh - 30,000₹</option>
+        </select>
+
+        <!-- FIXED Travel Date (hidden input) -->
+        <input
+          type="hidden"
+          id="travel_date"
+          name="travel_date"
+          value="2025-12-25"
+        />
+
+        <p><b>Travel Date: 25 December 2025</b></p>
+
+        <button type="submit">Book Now</button>
+      </form>
+    </section>
+    <footer>&copy; 2024 Travel Booking. All Rights Reserved.</footer>
+  </body>
+</html>

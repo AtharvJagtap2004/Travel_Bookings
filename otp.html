@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Enter OTP - Tourism Booking</title>
+    <link rel="stylesheet" href="CSS/otp.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Thank You Message Section -->
+      <h1>Thanks for Your Booking!</h1>
+      <p>
+        Your booking is almost complete. Please enter the OTP sent to your
+        mobile number to confirm your payment.
+      </p>
+
+      <!-- OTP Form Section -->
+      <div class="otp-box">
+        <form id="otp-form" method="post" action="successful.html">
+          <label for="otp">Enter OTP</label>
+          <input
+            type="number"
+            id="otp"
+            name="otp"
+            placeholder="Enter 6-digit OTP"
+            required
+          />
+          <div class="form-actions">
+            <!-- ✅ Confirm on left, Resend small button on right -->
+            <button type="submit" class="btn submit-btn">
+              Confirm Payment
+            </button>
+            <button type="button" class="btn resend-btn" id="resend-btn">
+              Resend OTP
+            </button>
+          </div>
+        </form>
+
+        <!-- Success + Dashboard -->
+        <br />
+        <p class="success-message" id="success-message" style="display: none">
+          ✔️ Payment Confirmed! Your booking is successful.
+        </p>
+        <a
+          href="index2.html"
+          class="dashboard-btn"
+          id="dashboard-btn"
+          style="display: none"
+          >Go to Dashboard</a
+        >
+      </div>
+    </div>
+
+    <script>
+      // OTP Submit Handler
+      document
+        .getElementById("otp-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const otpInput = document.getElementById("otp").value;
+
+          if (otpInput.length === 6) {
+            // Redirect to successful page
+            window.location.href = "successful.html";
+          } else {
+            alert("Please enter a valid 6-digit OTP.");
+          }
+        });
+
+      // Resend OTP Button
+      const resendBtn = document.getElementById("resend-btn");
+      let countdown;
+
+      resendBtn.addEventListener("click", function () {
+        alert("A new OTP has been sent to your mobile number!");
+        startCountdown(30); // 30s timer before next resend
+      });
+
+      function startCountdown(seconds) {
+        resendBtn.disabled = true;
+        let timeLeft = seconds;
+        resendBtn.textContent = "Resend OTP (" + timeLeft + "s)";
+
+        countdown = setInterval(() => {
+          timeLeft--;
+          resendBtn.textContent = "Resend OTP (" + timeLeft + "s)";
+          if (timeLeft <= 0) {
+            clearInterval(countdown);
+            resendBtn.disabled = false;
+            resendBtn.textContent = "Resend OTP";
+          }
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

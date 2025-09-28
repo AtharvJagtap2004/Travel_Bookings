@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atharv Jagtap - Resume</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8; /* same as portfolio */
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #0d1b2a; /* darker, consistent with portfolio */
+      padding: 15px 20px;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    nav a {
+      color: #f1f1f1;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease, transform 0.2s;
+    }
+    nav a:hover {
+      color: #00ffcc;
+      transform: translateY(-2px);
+    }
+
+    /* Resume Section */
+    section {
+      padding: 120px 20px 60px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+    .resume-box {
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #0077b6;
+    }
+    p {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    /* Button */
+    .btn-container {
+      margin: 20px 0;
+    }
+    .btn {
+      display: inline-block;
+      margin: 8px;
+      padding: 12px 24px;
+      background: #0077b6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: #005f8a;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0d1b2a;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <a href="portfolio.html">Home</a>
+  </nav>
+
+  <!-- Resume Section -->
+  <section>
+    <div class="resume-box">
+      <h1>My Resume</h1>
+      <p>Click below to download my resume:</p>
+      <div class="btn-container">
+        <a href="Atharv CV.pdf" class="btn" download>
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Atharv Jagtap. All rights reserved.
+  </footer>
+
+</body>
+</html>

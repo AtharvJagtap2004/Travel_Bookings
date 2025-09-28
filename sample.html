@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Booking Successful</title>
+    <link rel="stylesheet" href="CSS/form.css" />
+    <style>
+      .ticket {
+        max-width: 500px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .ticket h2 {
+        color: #0284c7;
+        font-size: 1.8em;
+        margin-bottom: 15px;
+      }
+      .ticket p {
+        font-size: 1.1em;
+        margin: 8px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ticket">
+      <h2>🎉 Booking Successful!</h2>
+      <p><strong>Name:</strong> <span id="name"></span></p>
+      <p><strong>Destination:</strong> <span id="destination"></span></p>
+      <p><strong>Price:</strong> ₹<span id="price"></span></p>
+      <p><strong>Payment ID:</strong> <span id="payment_id"></span></p>
+      <button onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+
+    <script>
+      const bookingData = JSON.parse(localStorage.getItem("bookingDetails"));
+      if (bookingData) {
+        document.getElementById("name").textContent = bookingData.name;
+        document.getElementById("destination").textContent =
+          bookingData.destination;
+        document.getElementById("price").textContent = bookingData.price;
+        document.getElementById("payment_id").textContent =
+          bookingData.payment_id;
+      } else {
+        document.body.innerHTML =
+          "<h2 style='text-align:center;color:red;'>No Booking Data Found!</h2>";
+      }
+    </script>
+  </body>
+</html>
+
+echo json_encode([ "status" => "success", "message" => "Booking confirmed",
+"booking" => [ "name" => $name, "destination" => $destination, "price" =>
+$price, "payment_id" => $payment_id ] ]); if (res.status === "success") {
+localStorage.setItem("bookingDetails", JSON.stringify(res.booking));
+window.location.href = "successful.html"; }
